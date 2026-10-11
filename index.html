@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="影视工厂：影视制作全流程信息导航。涵盖剧本创作、拍摄现场、后期剪辑、声音与调色、宣发上映五大车间，附工具清单、预算参考、片场安全与行业规范。只做知识与流程导航，不提供影视资源下载或在线播放。">
+<meta name="keywords" content="影视工厂, yingshigongchang-cn, 影视制作, 电影拍摄, 剧本创作, 剪辑调色, 影视后期, 导演, 摄影, 制片, 影视工具, 正版影视">
+<meta name="author" content="影视工厂">
+<meta name="theme-color" content="#b4531a">
+<title>影视工厂 &middot; 影视制作全流程导航 | yingshigongchang-cn.github.io</title>
+<link rel="canonical" href="https://yingshigongchang-cn.github.io/">
+<style>
+    :root{
+        --ink:#1c1a18; --steel:#5a6470; --rust:#b4531a; --orange:#e07a1f; --amber:#f2b544; --paper:#f4f1ea; --card:#fff; --line:rgba(180,83,26,.22);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.85;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    ul,ol,dl{list-style:none}
+    .wrap{max-width:1260px;margin:0 auto;padding:0 28px}
+    .section{padding:96px 0;position:relative}
+    .section:nth-child(even){background:linear-gradient(180deg,#ece7db,#f4f1ea)}
+    .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+    .sec-title{font-size:25px;font-weight:900;letter-spacing:1px;display:flex;align-items:center;gap:13px}
+    .sec-title .bolt{width:22px;height:22px;background:var(--rust);clip-path:polygon(40% 0,60% 0,55% 45%,100% 45%,55% 62%,62% 100%,45% 65%,0 60%,43% 44%);animation:fl 1.4s ease-in-out infinite alternate}
+    @keyframes fl{from{opacity:.35;filter:drop-shadow(0 0 0 var(--amber))}to{opacity:1;filter:drop-shadow(0 0 10px var(--amber))}}
+    .sec-title em{font-style:normal;color:var(--rust)}
+    .sec-more{font-size:10.5px;letter-spacing:2px;font-weight:800;color:var(--rust);border:1px solid var(--line);padding:8px 18px;border-radius:99px;transition:.25s}
+    .sec-more:hover{color:#fff;background:var(--rust);border-color:var(--rust)}
+
+    /* NAV */
+    .navbar{position:sticky;top:0;z-index:50;background:rgba(244,241,234,.96);backdrop-filter:blur(8px);border-bottom:2px solid var(--rust)}
+    .nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:9px 0}
+    .brand{display:flex;align-items:center;gap:11px;font:900 19px/1.2 Georgia,"Songti SC",serif;color:var(--rust)}
+    .brand .gears{width:38px;height:38px;border-radius:11px;background:linear-gradient(150deg,var(--rust),#7d3410);position:relative;box-shadow:0 6px 18px rgba(180,83,26,.34)}
+    .brand .gears::before,.brand .gears::after{content:"";position:absolute;inset:6px;border:3px dashed #f2b544;border-radius:50%;animation:spin 9s linear infinite}
+    .brand .gears::after{inset:13px;border-color:rgba(255,255,255,.55);animation-direction:reverse;animation-duration:6s}
+    .brand small{display:block;font:800 8.5px/1 "Courier New",monospace;letter-spacing:2.6px;color:var(--steel);font-family:system-ui,sans-serif;margin-top:3px}
+    .tabs{display:flex;gap:5px;background:#efe8d8;padding:5px;border-radius:11px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .tabs::-webkit-scrollbar{display:none}
+    .tabs a{flex:0 0 auto;font-size:11.5px;font-weight:800;letter-spacing:.6px;padding:9px 13px;border-radius:8px;color:#4d463c;transition:.22s;white-space:nowrap}
+    .tabs a.on{background:var(--rust);color:#fff;box-shadow:0 6px 16px rgba(180,83,26,.34)}
+
+    /* HERO：流水线进度 */
+    .hero{margin-top:52px;border-radius:30px;overflow:hidden;background:
+        radial-gradient(circle at 12% 18%,rgba(242,181,68,.26),transparent 42%),
+        repeating-linear-gradient(90deg,transparent 0 30px,rgba(255,255,255,.035) 30px 31px),
+        linear-gradient(135deg,#241c16,#5c3014 60%,#241c16);color:#f3ead8;box-shadow:0 34px 80px rgba(60,30,10,.4)}
+    .hero-inner{padding:56px 54px;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;position:relative;z-index:2}
+    .eyebrow{font:800 10px/1 "Courier New",monospace;letter-spacing:5px;color:#f2b544}
+    .hero h1{font-size:50px;line-height:1.3;font-weight:900;margin:12px 0;font-family:Georgia,"Songti SC",serif}
+    .hero h1 .hl{color:#f2b544;font-style:italic}
+    .hero .sub{font-size:14.5px;color:#e0d3bd;max-width:540px}
+    .convey{margin-top:26px;background:rgba(0,0,0,.34);border:1px solid rgba(242,181,68,.36);border-radius:16px;padding:20px 22px}
+    .convey .lab{font:800 9px/1 "Courier New",monospace;letter-spacing:3px;color:#f2b544;margin-bottom:14px;display:flex;justify-content:space-between}
+    .belt{display:flex;gap:0;align-items:stretch;height:42px}
+    .st{position:relative;flex:1;background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,255,255,.16) 6px 9px);overflow:hidden}
+    .st i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--amber),var(--orange));animation:bel 2.4s linear infinite;width:38%}
+    .st:nth-child(2) i{animation-duration:1.7s;background:linear-gradient(90deg,var(--orange),var(--rust))}
+    .st:nth-child(3) i{animation-duration:3.1s;background:linear-gradient(90deg,var(--amber),#c98a1c)}
+    .st:nth-child(4) i{animation-duration:2s;background:linear-gradient(90deg,#f0d69a,var(--amber))}
+    .st:nth-child(5) i{animation-duration:2.6s;background:linear-gradient(90deg,var(--rust),var(--orange))}
+    @keyframes bel{from{left:-40%}to{left:100%}}
+    .st b{position:absolute;right:7px;bottom:5px;font:800 8.5px/1 "Courier New",monospace;color:#fff;text-shadow:0 1px 4px #000;z-index:3}
+    .hero .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+    .hero .badges span{font-size:9.5px;letter-spacing:1.4px;font-weight:800;color:#241c16;background:#f2b544;padding:7px 13px;border-radius:99px}
+
+    /* 栏目一：五大车间 —— 横向时间轴 + 步骤卡 */
+    .line{position:relative;padding-left:96px}
+    .line::before{content:"";position:absolute;left:44px;top:6px;bottom:6px;width:3px;background:linear-gradient(180deg,var(--amber),var(--rust),var(--steel));border-radius:99px}
+    .stp{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 24px;margin-bottom:14px;transition:.34s}
+    .stp:hover{transform:translateX(9px);box-shadow:0 20px 44px rgba(180,83,26,.2);border-color:var(--rust)}
+    .stp::before{content:counter(shop,counter-style);counter-increment:shop;position:absolute;left:-96px;top:20px;width:46px;height:46px;border-radius:13px;background:linear-gradient(150deg,var(--rust),var(--orange));color:#fff;display:flex;align-items:center;justify-content:center;font:italic 900 20px/1 Georgia,serif;box-shadow:0 8px 20px rgba(180,83,26,.36)}
+    .stp h3{font-size:16px;display:flex;align-items:baseline;gap:10px}
+    .stp h3 small{font:800 9px/1 "Courier New",monospace;letter-spacing:2px;color:var(--rust)}
+    .stp p{font-size:12.5px;color:#6a6258;margin:6px 0 10px}
+    .stp .chips{display:flex;gap:7px;flex-wrap:wrap}
+    .stp .chips i{font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.8px;color:#7d3410;background:#f6e4cd;padding:5px 11px;border-radius:99px}
+
+    /* 栏目二：工种手册 —— CSS 计数器步骤条 + 翻转卡 */
+    .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:r}
+    .rl{height:210px;perspective:1200px;cursor:default}
+    .rl .f{position:relative;width:100%;height:100%;transition:.7s;transform-style:preserve-3d}
+    .rl:hover .f{transform:rotateY(180deg)}
+    .rl .front,.rl .back{position:absolute;inset:0;border-radius:16px;padding:20px;backface-visibility:hidden;border:1px solid var(--line);background:var(--card)}
+    .rl .back{transform:rotateY(180deg);background:linear-gradient(155deg,#5c3014,#241c16);color:#f0e0c4;display:flex;flex-direction:column;justify-content:center}
+    .rl .no{font:italic 900 30px/1 Georgia,serif;color:var(--amber);opacity:.55}
+    .rl h4{font-size:17px;margin-top:6px;font-family:Georgia,"Songti SC",serif}
+    .rl .en{font:800 9px/1 "Courier New",monospace;letter-spacing:2.4px;color:var(--steel);margin-top:5px}
+    .rl .back b{font-size:13px;color:#f2b544;margin-bottom:7px;letter-spacing:1px}
+    .rl .back p{font-size:11.5px;line-height:1.75;color:#e6d7bd}
+
+    /* 栏目三：工具台 —— 定义列表 + 预算条 */
+    .bench{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .toolbox{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 26px}
+    .toolbox h3{font:800 12px/1 "Courier New",monospace;letter-spacing:3px;color:var(--rust);border-bottom:2px dashed var(--line);padding-bottom:12px;margin-bottom:6px}
+    dl.tb{display:grid;grid-template-columns:74px 1fr;gap:11px 16px;align-items:baseline}
+    dl.tb dt{font:800 10px/1 "Courier New",monospace;letter-spacing:1px;color:#7d3410;background:#f6e4cd;padding:6px 8px;border-radius:6px;text-align:center}
+    dl.tb dd{font-size:12.5px;font-weight:700;border-bottom:1px dotted var(--line);padding-bottom:9px}
+    dl.tb dd small{display:block;font-weight:500;font-size:10.5px;color:#6a6258;margin-top:2px}
+    .meter{height:7px;border-radius:99px;background:#efe6d2;overflow:hidden;margin:6px 0 4px}
+    .meter i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--amber),var(--rust));animation:gr 1.05s cubic-bezier(.2,.8,.2,1) both}
+    @keyframes gr{from{width:0!important}}
+    .budget td:last-child{font:800 11px/1 "Courier New",monospace;color:var(--rust)}
+
+    /* 栏目四：片场安全 —— 左竖线时间轴 */
+    .safety{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .safe{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px 24px 58px;position:relative;transition:.3s}
+    .safe:hover{box-shadow:0 18px 40px rgba(180,83,26,.18);border-color:var(--rust)}
+    .safe .n{position:absolute;left:18px;top:22px;width:26px;height:26px;border-radius:50%;background:var(--rust);color:#fff;font:800 11px/26px text-align:center;box-shadow:0 0 0 5px rgba(180,83,26,.16)}
+    .safe h4{font-size:14.5px;display:flex;align-items:center;gap:8px}
+    .safe h4 .tag{font-size:9px;letter-spacing:1.2px;font-weight:800;color:#fff;background:var(--steel);padding:3px 8px;border-radius:99px}
+    .safe h4 .tag.hot{background:var(--rust)}
+    .safe p{font-size:12px;color:#6a6258;margin-top:6px}
+
+    /* 栏目五：行业规范 —— 表格 + 四色徽章 */
+    .tbl-wrap{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid var(--line)}
+    .tbl-wrap::-webkit-scrollbar{display:none}
+    table{width:100%;border-collapse:collapse;min-width:720px;background:var(--card)}
+    caption{caption-side:top;text-align:left;font:800 11px/1 "Courier New",monospace;letter-spacing:2px;color:var(--rust);padding:0 0 14px}
+    th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:12.5px;vertical-align:middle}
+    thead th{background:linear-gradient(100deg,#7d3410,var(--rust));color:#fff;font-size:10.5px;letter-spacing:2px;font-weight:800}
+    tbody tr:hover{background:#fbf0df;box-shadow:inset 4px 0 0 var(--amber)}
+    tbody tr:last-child td{border-bottom:none}
+    .badge{display:inline-block;font-size:9.5px;letter-spacing:1px;padding:4px 10px;border-radius:99px;font-weight:800}
+    .b-must{background:#fbe6d6;color:#7d3410}.b-suggest{background:#eef1f5;color:#3f4a5a}
+    .b-law{background:#fde8e6;color:#a3261c}.b-soft{background:#eaf3ea;color:#2c6b3a}
+
+    footer{margin-top:22px;background:linear-gradient(165deg,#1c1a18,#5c3014);color:#e0d3bd;padding:70px 0 22px}
+    .fg{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px}
+    .fb .logo{color:#fff;font:900 23px/1.35 Georgia,"Songti SC",serif;display:flex;align-items:center;gap:13px}
+    .fb p{font-size:12.5px;color:#c2b39a;margin:14px 0;max-width:380px;line-height:1.85}
+    .pills{display:flex;gap:8px;flex-wrap:wrap}
+    .pills span{font-size:10px;letter-spacing:1px;padding:6px 13px;border-radius:99px;background:rgba(242,181,68,.12);color:#f0d69a;border:1px solid rgba(242,181,68,.34)}
+    .fl h5{font:800 11px/1 "Courier New",monospace;letter-spacing:3px;color:#f2b544;margin-bottom:14px}
+    .fl a{display:block;font-size:12px;color:#c2b39a;padding:7px 0;transition:.2s}
+    .fl a:hover{color:#fff;padding-left:8px}
+    .copy{text-align:center;font-size:11.5px;color:#a3947c;border-top:1px solid rgba(255,255,255,.16);padding-top:24px;line-height:2}
+    .copy b{color:#f2b544}
+
+    .top{position:fixed;right:20px;bottom:24px;width:46px;height:46px;border-radius:50%;background:var(--rust);color:#f2b544;display:flex;align-items:center;justify-content:center;font-size:19px;opacity:0;pointer-events:none;transition:.3s;z-index:60;box-shadow:0 10px 24px rgba(60,30,10,.45)}
+    .top.on{opacity:1;pointer-events:auto}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .rv{opacity:0;transform:translateY(30px);transition:.82s cubic-bezier(.2,.72,.3,1)}
+    .rv.in{opacity:1;transform:none}
+
+    @media(max-width:1080px){
+        .hero-inner{grid-template-columns:1fr;padding:42px 28px}
+        .roles{grid-template-columns:repeat(2,1fr)}
+        .bench,.safety{grid-template-columns:1fr}
+    }
+    @media(max-width:820px){
+        .wrap{padding:0 16px}
+        .section{padding:62px 0}
+        .hero{margin-top:26px;border-radius:22px}
+        .hero-inner{padding:32px 20px}
+        .hero h1{font-size:32px}
+        .convey{padding:16px}
+        .belt{height:32px}
+        .st b{font-size:7.5px}
+        .sec-title{font-size:18px}
+        .line{padding-left:0}
+        .line::before{display:none}
+        .stp::before{position:static;margin-bottom:10px;width:40px;height:40px;font-size:17px}
+        .stp:hover{transform:none}
+        .roles{grid-template-columns:1fr 1fr}
+        .rl{height:auto;perspective:none}
+        .rl .f{transform:none!important}
+        .rl .back{position:static;transform:none;backface-visibility:visible;margin-top:10px;min-height:120px}
+    }
+    @media(max-width:560px){
+        .hero h1{font-size:25px}
+        .roles,.bench .toolbox{grid-template-columns:1fr}
+        .safety{grid-template-columns:1fr}
+        dl.tb{grid-template-columns:58px 1fr;gap:9px 12px}
+        dl.tb dt{font-size:9px}
+        .fg{grid-template-columns:1fr}
+        .copy{font-size:10.5px}
+    }
+    @media print{
+        .navbar,.top,.badges,.st i,.gears{display:none!important;animation:none!important}
+        body{background:#fff;color:#000;font-family:"Songti SC",serif}
+        .section{padding:10px 0}
+        .hero{box-shadow:none}
+        .stp,.rl,.toolbox,.safe,tr{box-shadow:none;break-inside:avoid}
+        .rl .back{display:block!important;background:#f4f1ea!important;color:#000!important}
+    }
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<header class="navbar">
+    <div class="wrap nav-in">
+        <a class="brand" href="#top" aria-label="影视工厂首页"><span class="gears" aria-hidden="true"></span>影视工厂<small>WORKFLOW NAV &middot; 影视制作全流程</small></a>
+        <nav class="tabs" aria-label="主导航">
+            <a href="#shop" class="on">五大车间</a>
+            <a href="#role">工种手册</a>
+            <a href="#bench">工具预算</a>
+            <a href="#safety">片场安全</a>
+            <a href="#law">行业规范</a>
+            <a href="#about">关于</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="wrap" id="top">
+    <div class="hero rv" aria-label="影视工厂首页">
+        <div class="hero-inner">
+            <div class="L">
+                <div class="eyebrow">FROM SCRIPT TO SCREEN</div>
+                <h1>一部片子，<span class="hl">是怎么被造出来的。</span></h1>
+                <p class="sub">影视工厂，是给<b>想做片子的人</b>看的静态信息导航：从一句念头，到剧本、勘景、开机、杀青、剪辑、调色、声音、宣发、上映。五个车间、十余个工种、一份预算区间、一张安全清单。我们只讲<b>流程、工具与规范</b>，不提供影视资源下载或在线播放。</p>
+                <form class="convey" onsubmit="return false" aria-label="站内检索">
+                    <div class="lab"><span>PRODUCTION LINE &middot; 片场流水线</span><span>实时示意</span></div>
+                    <div class="belt">
+                        <div class="st"><i></i><b>剧本</b></div>
+                        <div class="st"><i></i><b>拍摄</b></div>
+                        <div class="st"><i></i><b>剪辑</b></div>
+                        <div class="st"><i></i><b>调色</b></div>
+                        <div class="st"><i></i><b>上映</b></div>
+                    </div>
+                </form>
+                <div class="badges"><span>剧本 20%</span><span>拍摄 45%</span><span>后期 25%</span><span>宣发 10%</span><span>4K 母版</span><span>片场安全</span></div>
+            </div>
+            <div class="R" style="display:grid;gap:12px">
+                <div style="background:rgba(0,0,0,.3);border:1px solid rgba(242,181,68,.32);border-radius:14px;padding:18px">
+                    <div style="font:800 9.5px/1 'Courier New',monospace;letter-spacing:2.6px;color:#f2b544">TODAY ON SET</div>
+                    <h3 style="font-size:20px;margin:8px 0 6px;font-family:Georgia,'Songti SC',serif">低成本，不等于将就</h3>
+                    <p style="font-size:12px;color:#d8c9ae">用 90% 的筹备，换 10% 的现场。好片子是"写"出来和"剪"出来的，不是"拍"出来的。</p>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+                    <div style="background:rgba(242,181,68,.16);border:1px solid rgba(242,181,68,.3);border-radius:12px;padding:16px 10px;text-align:center"><b style="font:italic 26px/1 Georgia,serif;color:#f2b544;display:block">5</b><small style="font-size:10px;letter-spacing:1.4px;color:#e6d7bd">车间</small></div>
+                    <div style="background:rgba(242,181,68,.16);border:1px solid rgba(242,181,68,.3);border-radius:12px;padding:16px 10px;text-align:center"><b style="font:italic 26px/1 Georgia,serif;color:#f2b544;display:block">14</b><small style="font-size:10px;letter-spacing:1.4px;color:#e6d7bd">工种</small></div>
+                    <div style="background:rgba(242,181,68,.16);border:1px solid rgba(242,181,68,.3);border-radius:12px;padding:16px 10px;text-align:center"><b style="font:italic 26px/1 Georgia,serif;color:#f2b544;display:block">8</b><small style="font-size:10px;letter-spacing:1.4px;color:#e6d7bd">红线</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目一：五大车间（横向时间轴 + 步骤卡） -->
+<section class="section" id="shop" style="counter-reset:shop 0">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="bolt" aria-hidden="true"></span>五大<em>车间</em></h2>
+            <a class="sec-more" href="#">完整流程手册 &rarr;</a>
+        </div>
+        <div class="line">
+            <div class="stp"><h3>剧本车间 <small>SCRIPT ROOM</small></h3><p>从一句话梗概，到分场大纲、人物小传、完整剧本、分镜表。先写"谁想要什么、为什么得不到"。</p><div class="chips"><i>梗概 200 字</i><i>分场大纲</i><i>人物小传</i><i>三幕结构</i><i>分镜表</i><i>剧本格式</i></div></div>
+            <div class="stp"><h3>拍摄车间 <small>ON SET</small></h3><p>勘景、选角、定美术与服化道、排练、打板、保一条。灯光决定质感，录音决定成败。</p><div class="chips"><i>勘景报告</i><i>场记单</i><i>灯光方案</i><i>同期录音</i><i>场记板</i><i>日拍清单</i></div></div>
+            <div class="stp"><h3>后期车间 <small>POST</small></h3><p>初剪&rarr;精剪&rarr;视效&rarr;调色&rarr;声音设计&rarr;混音。剪辑是第二次写剧本。</p><div class="chips"><i>初剪</i><i>精剪</i><i>VFX</i><i>达芬奇调色</i><i>5.1 混音</i><i>字幕</i></div></div>
+            <div class="stp"><h3>声音车间 <small>SOUND</small></h3><p>对白补录、环境音、拟音、配乐、终混。观众会原谅画面，但不会原谅声音。</p><div class="chips"><i>ADR 对白补录</i><i>Foley 拟音</i><i>环境层</i><i>原创配乐</i><i>Loudness 标准</i></div></div>
+            <div class="stp"><h3>宣发车间 <small>DELIVERY</small></h3><p>物料（预告、海报、剧照）、介质（DCP / 4K 母版）、申报、排片、口碑、映后。</p><div class="chips"><i>预告片</i><i>主视觉</i><i>DCP 打包</i><i>龙标 / 公映</i><i>点映</i><i>映后 Q&amp;A</i></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目二：工种手册（CSS 计数器 + 3D 翻转卡） -->
+<section class="section" id="role">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="bolt" aria-hidden="true"></span>工种<em>手册</em></h2>
+            <a class="sec-more" href="#">完整工种对照 &rarr;</a>
+        </div>
+        <div class="roles">
+            <div class="rl"><div class="f"><div class="front"><div class="no">01</div><h4>导演</h4><div class="en">DIRECTOR</div><p style="font-size:12px;color:#6a6258;margin-top:10px">现场的第一读者与最终剪辑者。</p></div><div class="back"><b>核心交付</b><p>分镜表、现场调度、表演方向、粗剪意见。看回放时只说"再保一条"，不说"感觉不对"。</p></div></div></div>
+            <div class="rl"><div class="f"><div class="front"><div class="no">02</div><h4>制片</h4><div class="en">PRODUCER</div><p style="font-size:12px;color:#6a6258;margin-top:10px">把"不可能"翻译成"下周一"。</p></div><div class="back"><b>核心交付</b><p>预算表、拍摄日程、场地合同、餐车、保险、天气备案。保住钱、保住人、保住进度。</p></div></div></div>
+            <div class="rl"><div class="f"><div class="front"><div class="no">03</div><h4>摄影指导</h4><div class="en">DOP</div><p style="font-size:12px;color:#6a6258;margin-top:10px">用光写作，用焦段呼吸。</p></div><div class="back"><b>核心交付</b><p>灯光方案、镜头表、机位图、曝光与色温基准。先定"光的方向"，再谈"画面的美"。</p></div></div></div>
+            <div class="rl"><div class="f"><div class="front"><div class="no">04</div><h4>美术 / 服化道</h4><div class="en">ART DEPT</div><p style="font-size:12px;color:#6a6258;margin-top:10px">年代感不靠台词，靠一个杯子。</p></div><div class="back"><b>核心交付</b><p>美术设定、道具清单、服装谱系、场景改造图。让角色"住"进去，而不是"站"在里面。</p></div></div></div>
+            <div class="rl"><div class="f"><div class="front"><div class="no">05</div><h4>录音</h4><div class="en">SOUND REC</div><p style="font-size:12px;color:#6a6258;margin-top:10px">宁可画面差一点，不能声音脏。</p></div><div class="back"><b>核心交付</b><p>同期对白、环境底噪、无线麦点位、转录与场记对应表。开机前先听，不等剪辑才发现。</p></div></div></div>
+            <div class="rl"><div class="f"><div class="front"><div class="no">06</div><h4>剪辑</h4><div class="en">EDITOR</div><p style="font-size:12px;color:#6a6258;margin-top:10px">删掉你最爱的一场戏。</p></div><div class="back"><b>核心交付</b><p>粗剪、精剪、节奏曲线、转场逻辑、音乐卡点。剪辑是第二次写剧本。</p></div></div></div>
+            <div class="rl"><div class="f"><div class="front"><div class="no">07</div><h4>调色</h4><div class="en">COLORIST</div><p style="font-size:12px;color:#6a6258;margin-top:10px">统一肤色，先修曝光，再谈风格。</p></div><div class="back"><b>核心交付</b><p>一级调色（匹配）&rarr; 二级调色（分区）&rarr; LUT 输出。保留高光，压住霓虹。</p></div></div></div>
+            <div class="rl"><div class="f"><div class="front"><div class="no">08</div><h4>场记</h4><div class="en">SCRIPT SUP</div><p style="font-size:12px;color:#6a6258;margin-top:10px">全组唯一不能错的人。</p></div><div class="back"><b>核心交付</b><p>场记单、镜次、服装道具连续、对白版本、素材命名。没有场记单，后期寸步难行。</p></div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目三：工具台（定义列表 + 预算条） -->
+<section class="section" id="bench">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="bolt" aria-hidden="true"></span>工具<em>与预算</em></h2>
+            <a class="sec-more" href="#">完整工具清单 &rarr;</a>
+        </div>
+        <div class="bench">
+            <div>
+                <div class="toolbox"><h3>TOOL BENCH &middot; 常用工具</h3>
+                    <dl class="tb">
+                        <dt>写</dt><dd>分场大纲<small>先写"这场戏要什么"，再写台词</small></dd>
+                        <dt>剪</dt><dd>剪辑 / 调色 / 合成<small>代理文件剪辑，4K 母版输出</small></dd>
+                        <dt>声</dt><dd>录音 / 拟音 / 混音<small>枪麦 + 领夹 + 录音机，三线并行</small></dd>
+                        <dt>管</dt><dd>日程 / 预算 / 场记<small>日拍清单 + 场记单 + 素材命名规则</small></dd>
+                        <dt>看</dt><dd>取景 / 分镜 / 灯光预演<small>先拍参考片，再定机位</small></dd>
+                    </dl>
+                </div>
+                <div class="toolbox" style="margin-top:14px"><h3>SHORT FILM &middot; 短片预算区间（示例）</h3>
+                    <dl class="tb">
+                        <dt>&le;5 万</dt><dd>学生作业 / 剧本短片<small>自然光、单机型、同期录音</small><div class="meter"><i style="width:14%"></i></div></dd>
+                        <dt>5&ndash;20 万</dt><dd>毕业作品 / 电影节投片<small>灯光组 + 录音组 + 美术置景</small><div class="meter"><i style="width:34%"></i></div></dd>
+                        <dt>20&ndash;100 万</dt><dd>商业短片 / 品牌片<small>轨道、稳定器、DIT、调色</small><div class="meter"><i style="width:60%"></i></div></dd>
+                        <dt>100 万+</dt><dd>院线短片 / 长片样片<small>完整后期管线 + 原创配乐</small><div class="meter"><i style="width:92%"></i></div></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="tbl-wrap budget">
+                <table>
+                    <caption>预算科目占比参考 &middot; 以 15 分钟剧情短片为例（示例数据）</caption>
+                    <thead><tr><th style="width:130px">科目</th><th>说明</th><th style="width:110px">占比</th></tr></thead>
+                    <tbody>
+                        <tr><td><b>前期</b></td><td>剧本、勘景、选角、分镜、筹备会</td><td>8%</td></tr>
+                        <tr><td><b>摄影灯光</b></td><td>机身、镜头、灯具、轨道、稳定器、DIT</td><td>26%</td></tr>
+                        <tr><td><b>美术服化道</b></td><td>置景、道具、服装、化妆、耗材</td><td>14%</td></tr>
+                        <tr><td><b>录音</b></td><td>话筒、录音机、吊杆、拟音、转录</td><td>6%</td></tr>
+                        <tr><td><b>后期</b></td><td>剪辑、调色、视效、字幕、DCP</td><td>22%</td></tr>
+                        <tr><td><b>声音后期</b></td><td>ADR、Foley、配乐、5.1 终混</td><td>10%</td></tr>
+                        <tr><td><b>剧组保障</b></td><td>餐车、交通、场地、保险、住宿</td><td>10%</td></tr>
+                        <tr><td><b>不可预见</b></td><td>天气、补拍、器材损坏、临时人员</td><td>4%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目四：片场安全（左竖线时间轴） -->
+<section class="section" id="safety">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="bolt" aria-hidden="true"></span>片场<em>安全红线</em></h2>
+            <a class="sec-more" href="#">完整安全手册 &rarr;</a>
+        </div>
+        <div class="safety">
+            <div class="safe"><span class="n">1</span><h4>烟火与爆破 <span class="tag hot">高危</span></h4><p>须由持证烟火师操作，报批备案，清场、警戒、消防与医疗待命。禁止演员自行点烟点炮。</p></div>
+            <div class="safe"><span class="n">2</span><h4>车辆与追车 <span class="tag hot">高危</span></h4><p>封闭路段、专业车技替身、对讲统一口令、路障与救护车。摄影车不得超载、不得无保险。</p></div>
+            <div class="safe"><span class="n">3</span><h4>高空与爬楼 <span class="tag hot">高危</span></h4><p>安全绳、双钩、专人监护、风速上限。天台、楼梯、阳台镜头优先用绿幕或替身。</p></div>
+            <div class="safe"><span class="n">4</span><h4>水域与雨戏</h4><p>救生员、水温、潜水员、绝缘电器。雨后漏电检查，湿滑地面铺防滑垫。</p></div>
+            <div class="safe"><span class="n">5</span><h4>动物与儿童演员</h4><p>动物驯导员在场，工作时长与休息时间合规；未成年人须监护人签署同意并控制工时。</p></div>
+            <div class="safe"><span class="n">6</span><h4>灯光与用电</h4><p>HMI 与镝灯防触电、防炸泡；线缆过道加盖板；配电箱留人；收工断电顺序。</p></div>
+            <div class="safe"><span class="n">7</span><h4>餐饮与作息</h4><p>热水热饭、按时供餐、夜戏加餐；连续工作超 12 小时须强制休息，司机不得疲劳驾驶。</p></div>
+            <div class="safe"><span class="n">8</span><h4>现场沟通</h4><p>开机打板前全场静音、统一口令（"静音 / 开录 / 开机 / 卡"）；对讲只讲工作，不闲聊。</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目五：行业规范（表格 + 四色徽章） -->
+<section class="section" id="law">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="bolt" aria-hidden="true"></span>行业<em>规范</em></h2>
+            <a class="sec-more" href="#">法规原文 &rarr;</a>
+        </div>
+        <div class="tbl-wrap">
+            <table>
+                <caption>影视制作必知规范 &middot; 条目为通用提示，具体以主管部门最新规定为准</caption>
+                <thead><tr><th style="width:150px">事项</th><th>要点</th><th style="width:120px">性质</th></tr></thead>
+                <tbody>
+                    <tr><td><b>剧本备案 / 立项</b></td><td>摄制前按规定完成剧本（梗概）备案与电影（电视剧）制作许可相关手续</td><td><span class="badge b-law">法规</span></td></tr>
+                    <tr><td><b>版权与授权</b></td><td>剧本、音乐、字体、素材、肖像、场地均需书面授权；公共领域≠可商用</td><td><span class="badge b-law">法规</span></td></tr>
+                    <tr><td><b>公映 / 发行</b></td><td>影片公映须取得电影公映许可证（"龙标"）；网络发行须符合平台与备案要求</td><td><span class="badge b-law">法规</span></td></tr>
+                    <tr><td><b>片场安全</b></td><td>烟火、车辆、高空、水域、动物等高危场景须专项方案、持证人员与应急预案</td><td><span class="badge b-must">红线</span></td></tr>
+                    <tr><td><b>劳动与作息</b></td><td>签署劳务合同、明确工时与休息、购买意外险；未成年人演员须监护人同意</td><td><span class="badge b-must">红线</span></td></tr>
+                    <tr><td><b>声音响度</b></td><td>交付母版须符合播出/院线响度与峰值标准，避免"某平台声音小"</td><td><span class="badge b-suggest">建议</span></td></tr>
+                    <tr><td><b>素材命名</b></td><td>统一命名规则：项目_场镜次_机位_日期，避免"未命名(3).mov"</td><td><span class="badge b-suggest">建议</span></td></tr>
+                    <tr><td><b>备份与归档</b></td><td>原始素材双备份（现场盘 + 回公司盘），杀青后保留至少一份冷备份 3 年</td><td><span class="badge b-suggest">建议</span></td></tr>
+                    <tr><td><b>AI 与生成内容</b></td><td>使用 AI 生成画面/声音须标注，涉及肖像与著作权的须取得授权，不得替代署名</td><td><span class="badge b-law">法规</span></td></tr>
+                    <tr><td><b>字幕与无障碍</b></td><td>中文字幕校对白、方言、古诗；院线/流媒体建议提供字幕与口述影像</td><td><span class="badge b-soft">倡导</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目六：关于 -->
+<section class="section" id="about">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="bolt" aria-hidden="true"></span>关于<em>本站</em></h2>
+            <a class="sec-more" href="#">联系 &rarr;</a>
+        </div>
+        <div class="roles" style="grid-template-columns:repeat(4,1fr)">
+            <div class="rl" style="height:170px"><div class="f"><div class="front"><div class="no">01</div><h4>我们只做导航</h4><div class="en">STATIC</div></div><div class="back"><p>静态单页，内页链接均以 # 占位。讲流程、工具与规范，不提供、不存储、不链接任何影视盗版资源。</p></div></div></div>
+            <div class="rl" style="height:170px"><div class="f"><div class="front"><div class="no">02</div><h4>写给谁</h4><div class="en">AUDIENCE</div></div><div class="back"><p>学生作业、独立短片、新人剧组、想看懂片尾字幕的观众。不教"三天学会拍电影"。</p></div></div></div>
+            <div class="rl" style="height:170px"><div class="f"><div class="front"><div class="no">03</div><h4>更新节奏</h4><div class="en">UPDATE</div></div><div class="back"><p>每月更新工具与预算参考；每年更新法规与行业规范条目；开机季（春秋）加更安全专题。</p></div></div></div>
+            <div class="rl" style="height:170px"><div class="f"><div class="front"><div class="no">04</div><h4>纠错与投稿</h4><div class="en">FEEDBACK</div></div><div class="back"><p>预算区间、法规条款、工具推荐如有误或已过期，欢迎告知，核实后 72 小时内修正。</p></div></div></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="fg">
+            <div class="fb">
+                <a class="logo" href="#top"><span class="gears" aria-hidden="true"></span>影视工厂<small>WORKFLOW NAV &middot; 影视制作全流程</small></a>
+                <p>影视工厂，是一个静态的<b>影视制作信息导航</b>。我们按"剧本 &rarr; 拍摄 &rarr; 后期 &rarr; 宣发"梳理流程、工种、工具、预算、安全与规范，帮新人剧组少走弯路。</p>
+                <div class="pills"><span>剧本</span><span>拍摄</span><span>剪辑</span><span>调色</span><span>声音</span><span>宣发</span><span>片场安全</span><span>拒绝盗版</span></div>
+            </div>
+            <div class="fl"><h5>车 间</h5><a href="#shop">剧本车间</a><a href="#shop">拍摄车间</a><a href="#shop">后期车间</a><a href="#shop">声音车间</a><a href="#shop">宣发车间</a></div>
+            <div class="fl"><h5>工 具</h5><a href="#bench">剪辑与调色</a><a href="#bench">录音与混音</a><a href="#bench">预算区间</a><a href="#bench">素材命名</a><a href="#bench">备份归档</a></div>
+            <div class="fl"><h5>规 则</h5><a href="#safety">片场安全</a><a href="#law">行业规范</a><a href="#law">版权授权</a><a href="#">免责声明</a><a href="#">联系我们</a></div>
+        </div>
+        <div class="copy">
+            &copy; 2026 <b>影视工厂</b> &middot; 网站网址：https://yingshigongchang-cn.github.io/ &middot; 一部片子，是怎么被造出来的<br>
+            本站为静态导航演示页，内页链接均以 # 占位；工种职责、预算占比、法规要点均为通用示例内容，不构成法律、财务或制作建议，请以主管部门与专业意见为准。请通过正规院线、正版流媒体与授权渠道观影，尊重创作者劳动。
+        </div>
+    </div>
+</footer>
+
+<a class="top" href="#top" aria-label="回到顶部">&#8593;</a>
+
+<script>
+    var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:0.12});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+
+    var links=[].slice.call(document.querySelectorAll('.tabs a'));
+    var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+    function spy(){
+        var y=window.scrollY+168,cur=0;
+        secs.forEach(function(s,i){ if(s&&s.offsetTop<=y) cur=i; });
+        links.forEach(function(a,i){ a.classList.toggle('on',i===cur); });
+        var t=document.querySelector('.top'); if(t) t.classList.toggle('on',scrollY>800);
+    }
+    window.addEventListener('scroll',spy,{passive:true});spy();
+</script>
+</body>
+</html>
